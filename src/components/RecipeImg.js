@@ -52,6 +52,7 @@ class RecipeImg extends Component {
             placeholder="Enter image URL"
             name="imageURL"
             id="imageURL"
+            value={this.state.imageURL}
           />
           <div className="input-group-append">
             <button

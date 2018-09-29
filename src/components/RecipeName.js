@@ -39,25 +39,29 @@ class RecipeNameAndImg extends Component {
     const { error } = this.state;
 
     return (
-      <div className="mt-5">
-        {error && <p className="alert alert-danger">{error}</p>}
-        <div className="input-group">
-          <input
-            type="text"
-            placeholder="Please enter recipe name"
-            name="name"
-            id="name"
-            className="form-control"
-            onChange={this.onChange}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={this.onSubmit}
-            >
-              Add recipe name
-            </button>
+      <div>
+        <h3>Create a recipe:</h3>
+        <div className="mt-3">
+          {error && <p className="alert alert-danger">{error}</p>}
+          <div className="input-group">
+            <input
+              type="text"
+              placeholder="Please enter recipe name"
+              name="name"
+              id="name"
+              className="form-control"
+              value={this.state.name}
+              onChange={this.onChange}
+            />
+            <div className="input-group-append">
+              <button
+                className="btn btn-outline-secondary"
+                type="button"
+                onClick={this.onSubmit}
+              >
+                Add recipe name
+              </button>
+            </div>
           </div>
         </div>
       </div>

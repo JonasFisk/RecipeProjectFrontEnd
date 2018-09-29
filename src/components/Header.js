@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   render() {
+    const { authenticated } = this.props;
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-danger mb-3 py-0 mt-3">
         <div>
@@ -14,15 +15,24 @@ class Header extends Component {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/contact/add" className="nav-link">
-                <i className="fas fa-plus" /> Add
+              <Link to="/create" className="nav-link">
+                <i className="fas fa-plus" /> Create Recipe
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/about" className="nav-link">
-                <i className="fas fa-question" /> About
-              </Link>
-            </li>
+
+            {authenticated ? (
+              <li className="nav-item" to="/logout">
+                <Link to="/logout" className="nav-link">
+                  <i className="fas fa-question" /> Logout
+                </Link>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <Link to="/login" className="nav-link">
+                  <i className="fas fa-question" /> Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </nav>
@@ -30,11 +40,16 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  authenticated: state.authenticated.authenticated
+});
 
-const mapDispatchToProps = {};
+export default connect(mapStateToProps)(Header);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+/*
+<li className="nav-item">
+              <Link to="/login" className="nav-link">
+                <i className="fas fa-question" /> Login
+              </Link>
+            </li>
+*/
