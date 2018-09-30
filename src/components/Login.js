@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/authentication';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 class Login extends Component {
@@ -21,8 +20,6 @@ class Login extends Component {
 
     const { authenticated } = this.props;
 
-    console.log(authenticated);
-
     const { history } = this.props;
 
     authenticated
@@ -31,7 +28,7 @@ class Login extends Component {
   };
   render() {
     const { error } = this.state;
-    const { authenticated } = this.props;
+
     return (
       <div>
         {error && <p className="alert alert-danger">{error}</p>}
@@ -72,24 +69,3 @@ export default withRouter(
     { login }
   )(Login)
 );
-
-/* <input
-className="form-control"
-type="number"
-id="units"
-placeholder="Enter Units"
-onChange={this.onChange}
-name="units"
-value={this.state.units}
-/>
-
-
-<Link
-          className="btn btn-danger mt-2"
-          onClick={this.login}
-          to={authenticated ? '/' : '/login'}
-        >
-          Login
-        </Link>
-
-*/

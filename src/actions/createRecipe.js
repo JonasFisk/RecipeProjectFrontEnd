@@ -25,7 +25,7 @@ const getIngredients = search => async (dispatch, getState) => {
 
 const setIngredient = search => async (dispatch, getState) => {
   const response = await axios.get(
-    `http://localhost:8080/ingredient/${search}`
+    'http://localhost:8080/ingredient/' + encodeURIComponent(search)
   );
   dispatch({
     type: SET_INGREDIENT,

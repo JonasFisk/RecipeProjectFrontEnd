@@ -51,7 +51,8 @@ class Recipe extends Component {
             const value =
               ((ingredient.units * ingredient.inGrams) / 100) *
               naringsvardeValue;
-            const result = Math.round(value * 100) / 100;
+            // const result = Math.round(value * 100) / 100;
+            const result = +value.toFixed(2);
             showNutrition.push({
               Enhet: naringsvarde.Enhet,
               Forkortning: naringsvarde.Forkortning,
@@ -89,7 +90,7 @@ class Recipe extends Component {
     const { name, imageURL, description, tags } = this.props.recipe;
 
     return (
-      <div className="card card-body mb-3">
+      <div className="card card-body mb-3 mt-2">
         <h3>
           {name}
 
@@ -123,6 +124,7 @@ class Recipe extends Component {
                 src={imageURL}
                 style={{ width: 250, height: 250 }}
                 className="mt-2"
+                alt="Error"
               />
             </li>
             <li className="list-group-item" key={tags}>

@@ -14,11 +14,6 @@ class Header extends Component {
                 <i className="fas fa-home" /> Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/create" className="nav-link">
-                <i className="fas fa-plus" /> Create Recipe
-              </Link>
-            </li>
 
             {authenticated ? (
               <li className="nav-item" to="/logout">
@@ -30,6 +25,13 @@ class Header extends Component {
               <li className="nav-item">
                 <Link to="/login" className="nav-link">
                   <i className="fas fa-question" /> Login
+                </Link>
+              </li>
+            )}
+            {authenticated && (
+              <li className="nav-item">
+                <Link to="/create" className="nav-link">
+                  <i className="fas fa-plus" /> Create Recipe
                 </Link>
               </li>
             )}

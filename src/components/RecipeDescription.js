@@ -15,6 +15,10 @@ class RecipeDescription extends Component {
     e.preventDefault();
     const { description } = this.state;
     this.props.addDescription(description);
+
+    this.setState({
+      description: ''
+    });
   };
 
   render() {

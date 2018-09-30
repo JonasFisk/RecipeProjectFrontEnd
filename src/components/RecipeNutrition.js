@@ -48,6 +48,14 @@ class RecipeNutrition extends Component {
     });
   }
 
+  showTags() {
+    const { tags } = this.props;
+
+    return tags.map(tag => {
+      return <li key={tag}>{tag}</li>;
+    });
+  }
+
   showInstructions() {
     const { instructions } = this.props;
 
@@ -66,12 +74,15 @@ class RecipeNutrition extends Component {
               src={image}
               style={{ width: 250, height: 250 }}
               className="mt-2"
+              alt="Error"
             />
           )}
           <div className="mt-2">{description && <p>{description}</p>}</div>
           <div className="mt-2">
             <ul className="list-group">{this.showNutritionValues()}</ul>
           </div>
+          <div className="mt-2">{tags.legth > 0 && <p>Tags:</p>}</div>
+          <ol>{this.showTags()}</ol>
           <div className="mt-2">
             {instructions.length > 0 && <p>Instructions:</p>}
             <ol>{this.showInstructions()}</ol>

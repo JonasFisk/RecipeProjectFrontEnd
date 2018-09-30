@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 const showRecipes = (recipes, { name, description, tags }) => {
   return recipes.filter(recipe => {
     const recipeMatch = recipe.name.toLowerCase().includes(name.toLowerCase());
