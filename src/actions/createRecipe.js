@@ -86,7 +86,6 @@ const setTags = tags => {
 
 const getTags = () => async (dispatch, getState) => {
   const result = await axios.get('http://localhost:8080/tags');
-  console.log(result.data.tags);
   dispatch({
     type: GET_TAGS,
     payload: result.data.tags

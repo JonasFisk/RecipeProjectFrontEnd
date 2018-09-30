@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import CreateRecipeReducer from '../reducers/createRecipeReducer';
 import RecipeReducer from '../reducers/recipeReducer';
 import AuthenticationReducer from '../reducers/authReducer';
+import FiltersReducer from '../reducers/filterReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -12,7 +13,8 @@ export default () => {
     combineReducers({
       createRecipe: CreateRecipeReducer,
       recipes: RecipeReducer,
-      authenticated: AuthenticationReducer
+      authenticated: AuthenticationReducer,
+      filters: FiltersReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

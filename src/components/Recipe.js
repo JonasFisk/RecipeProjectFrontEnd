@@ -13,7 +13,7 @@ class Recipe extends Component {
     const { tags } = this.props.recipe;
 
     return tags.map(tag => {
-      return <li key={tag.label}>{tag.label}</li>;
+      return <li key={tag}>{tag}</li>;
     });
   }
   showInstructions() {
@@ -81,9 +81,9 @@ class Recipe extends Component {
     });
   }
   onChange = e => {
-    e.target.value > -1
+    e.target.value > 0
       ? this.setState({ [e.target.name]: e.target.value })
-      : this.setState({ portions: 0 });
+      : this.setState({ portions: 1 });
   };
   render() {
     const { name, imageURL, description, tags } = this.props.recipe;

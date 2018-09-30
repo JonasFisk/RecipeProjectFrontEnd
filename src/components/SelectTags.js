@@ -18,10 +18,12 @@ class SelectTags extends Component {
   onChange = (newValue, actionMeta) => {
     newValue.forEach(item => {
       if (item.__isNew__) {
-        this.props.createTag(item);
+        this.props.createTag(item.value);
       }
     });
-    this.props.setTags(newValue);
+
+    const values = newValue.map(value => value.value);
+    this.props.setTags(values);
   };
   render() {
     const { options } = this.state;
