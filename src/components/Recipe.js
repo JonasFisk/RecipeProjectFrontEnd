@@ -83,7 +83,7 @@ class Recipe extends Component {
   onChange = e => {
     e.target.value > 0
       ? this.setState({ [e.target.name]: e.target.value })
-      : this.setState({ portions: 1 });
+      : this.setState({ portions: 0 });
   };
   render() {
     const { name, imageURL, description, tags } = this.props.recipe;
@@ -107,7 +107,7 @@ class Recipe extends Component {
         <input
           type="number"
           className="form-control"
-          style={{ width: 50 }}
+          style={{ width: 100 }}
           value={this.state.portions}
           onChange={this.onChange}
           name="portions"
