@@ -8,17 +8,26 @@ class Logout extends Component {
     this.props.logout();
   };
   render() {
+    const { authenticated } = this.props;
     return (
       <div>
-        <Link className="btn btn-danger" onClick={this.logout} to="/">
-          Logout
-        </Link>
+        {authenticated ? (
+          <Link className="btn btn-danger" onClick={this.logout} to="/">
+            Logout
+          </Link>
+        ) : (
+          <p>You are not logged in</p>
+        )}
       </div>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  authenticated: state.authenticated.authenticated
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { logout }
 )(Logout);

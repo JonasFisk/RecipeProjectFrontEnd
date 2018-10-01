@@ -90,6 +90,7 @@ class ModifySelectedIngredient extends Component {
                     <option value="krm">krm</option>
                     <option value="tsk">tsk</option>
                     <option value="msk">msk</option>
+                    <option value="st">st</option>
                   </select>
                 </div>
                 <div className="form-group">

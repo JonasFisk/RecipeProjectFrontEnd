@@ -9,7 +9,8 @@ import {
   GET_TAGS,
   CREATE_TAG,
   ADD_DESCRIPTION,
-  ADD_INSTRUCTIONS
+  ADD_INSTRUCTIONS,
+  RESET_RECIPE
 } from '../actions/types/types';
 
 const initialState = {
@@ -91,6 +92,20 @@ export default (state = initialState, action) => {
         ...state,
         instructions: action.payload
       };
+    case RESET_RECIPE: {
+      return {
+        ...state,
+        ingredients: [],
+        recipeIngredients: [],
+        selectedIngredient: {},
+        name: '',
+        imageURL: '',
+        tags: [],
+        allTags: [],
+        description: '',
+        instructions: []
+      };
+    }
     default:
       return state;
   }

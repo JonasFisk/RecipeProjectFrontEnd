@@ -58,33 +58,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(CreateRecipe);
-
-/*
-export default () => {
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6">
-          <div className="row">
-            <div className="col-md-12">
-              <RecipeName />
-              <RecipeImg />
-
-              <SelectTags />
-              <RecipeDescription />
-
-              <SelectIngredient />
-              <ModifyRecipe />
-              <AddInstructions />
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <RecipeNutrition />
-          <ShowIngredients />
-          <SubmitRecipe />
-        </div>
-      </div>
-    </div>
-  );
-};*/

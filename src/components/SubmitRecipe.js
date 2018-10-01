@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createRecipe } from '../actions/recipe';
+import { resetRecipe } from '../actions/createRecipe';
 
 class SubmitRecipe extends Component {
   state = {
@@ -15,15 +16,6 @@ class SubmitRecipe extends Component {
       description,
       instructions
     } = this.props;
-    /*
-    if (
-      ingredients &&
-      name &&
-      imageURL &&
-      tags &&
-      description &&
-      instructions
-    ) {*/
     const recipe = {
       name,
       tags,
@@ -31,18 +23,9 @@ class SubmitRecipe extends Component {
       ingredients,
       imageURL,
       description
-    }; /*
-      this.setState({
-        error: ''
-      });
-*/
+    };
     this.props.createRecipe(recipe);
-    /*
-    } else {
-      this.setState({
-        error: 'Missing one of several requiered values'
-      });
-    }*/
+    this.props.resetRecipe();
   };
   render() {
     const { error } = this.state;
@@ -85,19 +68,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createRecipe }
+  { createRecipe, resetRecipe }
 )(SubmitRecipe);
-
-/*
-ingredients: state.createRecipe.ingredients
-
-ingredients: [],
-  recipeIngredients: [],
-  selectedIngredient: {},
-  name: '',
-  imageURL: '',
-  tags: [],
-  allTags: [],
-  description: '',
-  instructions: []
-*/
