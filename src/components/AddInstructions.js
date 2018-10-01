@@ -15,8 +15,6 @@ class AddInstructions extends Component {
     e.preventDefault();
     const { instructions, instruction } = this.state;
     const newInstructions = instructions;
-
-    console.log(newInstructions);
     if (instruction) {
       newInstructions.push(instruction);
       this.setState({
@@ -84,14 +82,3 @@ export default connect(
   mapStateToProps,
   { addInstructions }
 )(AddInstructions);
-/*
-   <input
-              className="form-control"
-              type="text"
-              name="description"
-              id="description"
-              value={description}
-              onChange={this.onChange}
-              placeholder="Enter a description"
-            />
-*/

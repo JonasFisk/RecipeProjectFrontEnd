@@ -15,12 +15,16 @@ class SelectTags extends Component {
       options: allTags
     });
   }
-  onChange = (newValue, actionMeta) => {
-    console.log('new', newValue);
-    console.log('action', actionMeta);
-    newValue.forEach(item => {
-      if (item.__isNew__) {
-        this.props.createTag(item);
+  onChange = async (newValue, actionMeta) => {
+    const { options } = this.state;
+
+    newValue.forEach(value => {
+      const index = options.findIndex(option => option.value === value.value);
+      if (index === -1) {
+        this.props.createTag(value);
+        this.setState({
+          options: [...options, value]
+        });
       }
     });
 

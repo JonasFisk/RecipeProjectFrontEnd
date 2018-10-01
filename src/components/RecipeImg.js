@@ -36,7 +36,6 @@ class RecipeImg extends Component {
         error: 'Please enter a valid image URL'
       });
     }
-    console.log(this.state.error);
   };
 
   render() {

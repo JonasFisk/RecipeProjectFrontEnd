@@ -18,7 +18,7 @@ class RecipeNutrition extends Component {
             const value =
               ((ingredient.units * ingredient.inGrams) / 100) *
               naringsvardeValue;
-            const result = Math.round(value * 100) / 100;
+            const result = +value.toFixed(2);
             showNutrition.push({
               Enhet: naringsvarde.Enhet,
               Forkortning: naringsvarde.Forkortning,

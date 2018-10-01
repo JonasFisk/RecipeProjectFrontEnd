@@ -1,4 +1,3 @@
-//import React from 'react';
 import SelectIngredient from './SelectIngredient';
 import ShowIngredients from './ShowIngredients';
 import RecipeNutrition from './RecipeNutrition';

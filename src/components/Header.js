@@ -47,11 +47,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Header);
-
-/*
-<li className="nav-item">
-              <Link to="/login" className="nav-link">
-                <i className="fas fa-question" /> Login
-              </Link>
-            </li>
-*/
