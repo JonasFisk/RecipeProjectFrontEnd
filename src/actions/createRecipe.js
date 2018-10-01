@@ -94,6 +94,7 @@ const getTags = () => async (dispatch, getState) => {
 };
 
 const createTag = tag => {
+  console.log(tag);
   axios.post('http://localhost:8080/tags', tag);
   return {
     type: CREATE_TAG,

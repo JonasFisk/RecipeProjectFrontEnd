@@ -16,9 +16,11 @@ class SelectTags extends Component {
     });
   }
   onChange = (newValue, actionMeta) => {
+    console.log('new', newValue);
+    console.log('action', actionMeta);
     newValue.forEach(item => {
       if (item.__isNew__) {
-        this.props.createTag(item.value);
+        this.props.createTag(item);
       }
     });
 
