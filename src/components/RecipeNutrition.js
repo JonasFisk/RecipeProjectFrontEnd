@@ -59,7 +59,7 @@ class RecipeNutrition extends Component {
       return (
         <li className="list-group-item" key={value.Namn}>{`${
           value.Namn
-        }: Värde: ${value.Varde.toFixed(2)}g`}</li>
+        }: Värde: ${value.Varde.toFixed(2).replace('.', ',')}g`}</li>
       );
     });
   }
