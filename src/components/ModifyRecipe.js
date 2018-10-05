@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addIngredient } from '../actions/createRecipe';
+import { addIngredient, resetSelected } from '../actions/createRecipe';
 
 class ModifySelectedIngredient extends Component {
   state = {
@@ -32,7 +32,7 @@ class ModifySelectedIngredient extends Component {
 
     if (!units || !inGrams) {
       await this.setState({
-        error: 'Please enter Units and Grams per unit'
+        error: 'Skriv in antal och gram per antal'
       });
     }
 
@@ -47,6 +47,7 @@ class ModifySelectedIngredient extends Component {
         units: '',
         inGrams: ''
       });
+      this.props.resetSelected();
     }
   };
 
@@ -69,7 +70,7 @@ class ModifySelectedIngredient extends Component {
                     className="form-control"
                     type="number"
                     id="units"
-                    placeholder="Enter Units"
+                    placeholder="Antal av ingrediensen"
                     onChange={this.onChange}
                     name="units"
                     value={this.state.units}
@@ -98,13 +99,17 @@ class ModifySelectedIngredient extends Component {
                     className="form-control"
                     type="number"
                     id="inGrams"
-                    placeholder="Unit equivalent in grams"
+                    placeholder="Gram per enhet"
                     name="inGrams"
                     value={this.state.inGrams}
                     onChange={this.onChange}
                   />
                 </div>
-                <input type="submit" value="Add Ingredient" className="btn" />
+                <input
+                  type="submit"
+                  value="Lägg till ingrediens"
+                  className="btn"
+                />
               </form>
             </div>
           )}
@@ -120,5 +125,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addIngredient }
+  { addIngredient, resetSelected }
 )(ModifySelectedIngredient);

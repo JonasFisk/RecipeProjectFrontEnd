@@ -38,7 +38,17 @@ class Recipe extends Component {
 
   showNutritionValues() {
     const { ingredients } = this.props.recipe;
-    const searchWords = ['Fett', 'Energi (kcal)', 'Protein'];
+    const searchWords = [
+      'Fett',
+      'Energi (kcal)',
+      'Protein',
+      'Kolhydrater',
+      'Salt',
+      'Socker totalt',
+      'Summa mättade fettsyror',
+      'Summa enkelomättade fettsyror',
+      'Summa fleromättade fettsyror'
+    ];
     const showNutrition = [];
 
     ingredients.forEach(ingredient => {
@@ -51,13 +61,19 @@ class Recipe extends Component {
             const value =
               ((ingredient.units * ingredient.inGrams) / 100) *
               naringsvardeValue;
-            const result = +value.toFixed(2);
+            let newName;
+            if (naringsvarde.Namn.includes('Summa')) {
+              newName = naringsvarde.Namn.slice(5, naringsvarde.Namn.length);
+              newName = newName[1].toUpperCase() + newName.slice(2);
+            } else {
+              newName = naringsvarde.Namn;
+            }
             showNutrition.push({
               Enhet: naringsvarde.Enhet,
               Forkortning: naringsvarde.Forkortning,
-              Namn: naringsvarde.Namn,
+              Namn: newName,
               SenastAndrad: naringsvarde.SenastAndrad,
-              Varde: result
+              Varde: value
             });
           }
         });
@@ -74,9 +90,11 @@ class Recipe extends Component {
 
     return values.map(value => {
       return (
-        <li className="list-group-item" key={value.Namn}>{`Name: ${
-          value.Namn
-        }: Value: ${value.Varde * this.state.portions}`}</li>
+        <li className="list-group-item" key={value.Namn}>{`${value.Namn}: ${(
+          value.Varde * this.state.portions
+        )
+          .toFixed(2)
+          .replace('.', ',')}g`}</li>
       );
     });
   }
@@ -103,7 +121,7 @@ class Recipe extends Component {
             style={{ cursor: 'pointer' }}
           />
         </h3>
-        Portions:
+        Portioner:
         <input
           type="number"
           className="form-control"
@@ -116,7 +134,7 @@ class Recipe extends Component {
         {this.state.showInfo ? (
           <ul className="list-group">
             <li className="list-group-item" key={description}>
-              Description: {description}
+              Beskrivning: {description}
             </li>
             <li className="list-group-item" key={imageURL}>
               <img
@@ -127,16 +145,16 @@ class Recipe extends Component {
               />
             </li>
             <li className="list-group-item" key={tags}>
-              Tags: <ol>{this.showtags()}</ol>
+              Taggar: <ol>{this.showtags()}</ol>
             </li>
             <li className="list-group-item">
-              Instructions: <ol>{this.showInstructions()}</ol>
+              Instruktioner: <ol>{this.showInstructions()}</ol>
             </li>
             <li className="list-group-item">
-              Ingredients: <ol>{this.showIngredients()}</ol>
+              Ingredienser: <ol>{this.showIngredients()}</ol>
             </li>
             <li className="list-group-item">
-              Nutrition: <ol>{this.showNutritionValues()}</ol>
+              Näring: <ol>{this.showNutritionValues()}</ol>
             </li>
           </ul>
         ) : null}

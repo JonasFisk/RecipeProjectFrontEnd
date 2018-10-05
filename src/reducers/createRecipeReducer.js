@@ -10,7 +10,8 @@ import {
   CREATE_TAG,
   ADD_DESCRIPTION,
   ADD_INSTRUCTIONS,
-  RESET_RECIPE
+  RESET_RECIPE,
+  RESET_SELECTED
 } from '../actions/types/types';
 
 const initialState = {
@@ -42,13 +43,15 @@ export default (state = initialState, action) => {
         ingredient =>
           ingredient.ingredient.Namn === action.payload.ingredient.Namn
       );
-      if (!index) {
+      console.log(index);
+      if (index === -1) {
+        return {
+          ...state,
+          recipeIngredients: [action.payload, ...state.recipeIngredients]
+        };
+      } else {
         return state;
       }
-      return {
-        ...state,
-        recipeIngredients: [action.payload, ...state.recipeIngredients]
-      };
     }
     case ADD_IMAGEURL:
       return {
@@ -104,6 +107,13 @@ export default (state = initialState, action) => {
         allTags: [],
         description: '',
         instructions: []
+      };
+    }
+
+    case RESET_SELECTED: {
+      return {
+        ...state,
+        selectedIngredient: {}
       };
     }
     default:

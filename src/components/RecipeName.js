@@ -31,7 +31,7 @@ class RecipeNameAndImg extends Component {
       });
     } else {
       this.setState({
-        error: 'Please enter a recipe name'
+        error: 'Skriv in ett recept namn'
       });
     }
   };
@@ -40,13 +40,14 @@ class RecipeNameAndImg extends Component {
 
     return (
       <div>
-        <h3>Create a recipe:</h3>
+        <h3>Skapa ett recept:</h3>
+        <p>Varje recept är för en portion</p>
         <div className="mt-3">
           {error && <p className="alert alert-danger">{error}</p>}
           <div className="input-group">
             <input
               type="text"
-              placeholder="Please enter recipe name"
+              placeholder="Skriv in ett recept namn"
               name="name"
               id="name"
               className="form-control"
@@ -59,7 +60,7 @@ class RecipeNameAndImg extends Component {
                 type="button"
                 onClick={this.onSubmit}
               >
-                Add recipe name
+                Lägg till namn
               </button>
             </div>
           </div>

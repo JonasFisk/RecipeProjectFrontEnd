@@ -5,7 +5,17 @@ import _ from 'lodash';
 class RecipeNutrition extends Component {
   showNutritionValues() {
     const { ingredients } = this.props;
-    const searchWords = ['Fett', 'Energi (kcal)', 'Protein'];
+    const searchWords = [
+      'Fett',
+      'Energi (kcal)',
+      'Protein',
+      'Kolhydrater',
+      'Salt',
+      'Socker totalt',
+      'Summa mättade fettsyror',
+      'Summa enkelomättade fettsyror',
+      'Summa fleromättade fettsyror'
+    ];
     const showNutrition = [];
 
     ingredients.forEach(ingredient => {
@@ -18,13 +28,19 @@ class RecipeNutrition extends Component {
             const value =
               ((ingredient.units * ingredient.inGrams) / 100) *
               naringsvardeValue;
-            const result = +value.toFixed(2);
+            let newName;
+            if (naringsvarde.Namn.includes('Summa')) {
+              newName = naringsvarde.Namn.slice(5, naringsvarde.Namn.length);
+              newName = newName[1].toUpperCase() + newName.slice(2);
+            } else {
+              newName = naringsvarde.Namn;
+            }
             showNutrition.push({
               Enhet: naringsvarde.Enhet,
               Forkortning: naringsvarde.Forkortning,
-              Namn: naringsvarde.Namn,
+              Namn: newName,
               SenastAndrad: naringsvarde.SenastAndrad,
-              Varde: result
+              Varde: value
             });
           }
         });
@@ -41,9 +57,9 @@ class RecipeNutrition extends Component {
 
     return values.map(value => {
       return (
-        <li className="list-group-item" key={value.Namn}>{`Name: ${
+        <li className="list-group-item" key={value.Namn}>{`${
           value.Namn
-        }: Value: ${value.Varde}`}</li>
+        }: Värde: ${value.Varde.toFixed(2)}g`}</li>
       );
     });
   }
@@ -77,14 +93,16 @@ class RecipeNutrition extends Component {
               alt="Error"
             />
           )}
-          <div className="mt-2">{description && <p>{description}</p>}</div>
+          <div className="mt-2">
+            {description && <p>Beskrivning: {description}</p>}
+          </div>
           <div className="mt-2">
             <ul className="list-group">{this.showNutritionValues()}</ul>
           </div>
-          <div className="mt-2">{tags.legth > 0 && <p>Tags:</p>}</div>
+          <div className="mt-2">{tags.length > 0 && <p>Taggar:</p>}</div>
           <ol>{this.showTags()}</ol>
           <div className="mt-2">
-            {instructions.length > 0 && <p>Instructions:</p>}
+            {instructions.length > 0 && <p>Instruktioner:</p>}
             <ol>{this.showInstructions()}</ol>
           </div>
         </div>

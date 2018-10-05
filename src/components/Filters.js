@@ -32,7 +32,7 @@ class Filters extends Component {
             className="form-control"
             style={{ width: 200 }}
             type="text"
-            placeholder="Filter by name"
+            placeholder="Filtrera på namn"
             value={this.props.filters.name}
             onChange={e => {
               this.props.setNameFilter(e.target.value);
@@ -42,7 +42,7 @@ class Filters extends Component {
             className="form-control"
             style={{ width: 200 }}
             type="text"
-            placeholder="Filter by Description"
+            placeholder="Filtrera på beskrivning"
             value={this.props.filters.description}
             onChange={e => {
               this.props.setDescriptionFilter(e.target.value);
@@ -54,7 +54,7 @@ class Filters extends Component {
           options={this.state.options}
           onChange={this.onChange}
           isMulti
-          placeholder={'Filter by tags'}
+          placeholder={'Filtrera på taggar'}
         />
       </div>
     );

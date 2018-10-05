@@ -61,14 +61,14 @@ class AddInstructions extends Component {
                 type="button"
                 onClick={this.submit}
               >
-                Add instruction
+                Lägg till instruktion
               </button>
             </div>
           </div>
         </div>
         {instructions.length > 0 && (
           <button className="btn mb-3 mt-2" onClick={this.submitInstructions}>
-            Submit instructions
+            Lägg till instruktionerna till receptet
           </button>
         )}
       </div>

@@ -24,7 +24,7 @@ class Login extends Component {
 
     authenticated
       ? history.push('/')
-      : this.setState({ error: 'Username and/or Password is incorrect' });
+      : this.setState({ error: 'Användarnamn och/eller lösenord är fel' });
   };
   render() {
     const { error } = this.state;
@@ -34,7 +34,7 @@ class Login extends Component {
         {error && <p className="alert alert-danger">{error}</p>}
         <input
           type="text"
-          placeholder="Enter Username"
+          placeholder="Användarnamn"
           id="username"
           name="username"
           onChange={this.onChange}
@@ -43,7 +43,7 @@ class Login extends Component {
         />
         <input
           type="password"
-          placeholder="Enter Password"
+          placeholder="Lösenord"
           id="password"
           name="password"
           onChange={this.onChange}
@@ -52,7 +52,7 @@ class Login extends Component {
         />
 
         <button className="btn btn-danger mt-2" onClick={this.login}>
-          Login
+          Logga in
         </button>
       </div>
     );

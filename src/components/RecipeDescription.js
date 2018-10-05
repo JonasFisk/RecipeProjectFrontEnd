@@ -34,7 +34,7 @@ class RecipeDescription extends Component {
             id="description"
             value={description}
             onChange={this.onChange}
-            placeholder="Enter a description"
+            placeholder="Lägg till en beskrivning"
           />
           <div className="input-group-append">
             <button
@@ -42,7 +42,7 @@ class RecipeDescription extends Component {
               type="button"
               className="btn btn-outline-secondary"
             >
-              Add description
+              Lägg till beskrivning
             </button>
           </div>
         </div>

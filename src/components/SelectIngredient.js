@@ -36,7 +36,8 @@ class SelectIngredient extends Component {
     await this.setState({
       selectedOption
     });
-    this.props.setIngredient(this.state.selectedOption.value);
+    await this.props.setIngredient(this.state.selectedOption.value);
+    this.setState({ selectedOption: {} });
   };
 
   render() {
@@ -45,6 +46,7 @@ class SelectIngredient extends Component {
     return (
       <div className="mt-2">
         <div>
+          <p>Sök efter en ingrediens: </p>
           <Select
             value={selectedOption}
             inputValue={search}

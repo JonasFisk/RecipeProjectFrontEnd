@@ -11,7 +11,8 @@ import {
   CREATE_TAG,
   ADD_DESCRIPTION,
   ADD_INSTRUCTIONS,
-  RESET_RECIPE
+  RESET_RECIPE,
+  RESET_SELECTED
 } from './types/types';
 
 const getIngredients = search => async (dispatch, getState) => {
@@ -115,6 +116,12 @@ const addInstructions = instructions => {
   };
 };
 
+const resetSelected = () => {
+  return {
+    type: RESET_SELECTED
+  };
+};
+
 const resetRecipe = () => {
   return {
     type: RESET_RECIPE
@@ -133,5 +140,6 @@ export {
   createTag,
   addDescription,
   addInstructions,
-  resetRecipe
+  resetRecipe,
+  resetSelected
 };

@@ -33,7 +33,7 @@ class RecipeImg extends Component {
       });
     } else {
       this.setState({
-        error: 'Please enter a valid image URL'
+        error: 'Skriv in en gilltig bild url'
       });
     }
   };
@@ -48,7 +48,7 @@ class RecipeImg extends Component {
             onChange={this.onChange}
             type="text"
             className="form-control"
-            placeholder="Enter image URL"
+            placeholder="Skriv in bild URL"
             name="imageURL"
             id="imageURL"
             value={this.state.imageURL}
@@ -59,7 +59,7 @@ class RecipeImg extends Component {
               className="btn btn-outline-secondary"
               type="button"
             >
-              Add image URL
+              Lägg till bild
             </button>
           </div>
         </div>

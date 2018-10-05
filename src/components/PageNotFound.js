@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export default () => {
   return (
     <div>
-      <p>Page not found!</p>
-      <Link to="/">Home</Link>
+      <p>Sidan finns inte!</p>
+      <Link to="/">Hem</Link>
     </div>
   );
 };

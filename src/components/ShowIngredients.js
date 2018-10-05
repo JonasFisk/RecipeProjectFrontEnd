@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 class RecipeNutrition extends Component {
   removeIngredient(ingredient) {
+    console.log(ingredient);
     this.props.removeIngredient(ingredient);
   }
   render() {
@@ -23,7 +24,7 @@ class RecipeNutrition extends Component {
                 className="btn btn-danger ml-3"
                 onClick={this.removeIngredient.bind(this, ingredient)}
               >
-                Remove Ingredient
+                Ta bort ingrediens
               </button>
             </li>
           ))}

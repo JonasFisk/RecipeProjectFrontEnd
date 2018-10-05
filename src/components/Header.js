@@ -11,27 +11,27 @@ class Header extends Component {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                <i className="fas fa-home" /> Home
+                <i className="fas fa-home" /> Hem
               </Link>
             </li>
 
             {authenticated ? (
               <li className="nav-item" to="/logout">
                 <Link to="/logout" className="nav-link">
-                  <i className="fas fa-question" /> Logout
+                  <i className="fas fa-question" /> Logga ut
                 </Link>
               </li>
             ) : (
               <li className="nav-item">
                 <Link to="/login" className="nav-link">
-                  <i className="fas fa-question" /> Login
+                  <i className="fas fa-question" /> Logga in
                 </Link>
               </li>
             )}
             {authenticated && (
               <li className="nav-item">
                 <Link to="/create" className="nav-link">
-                  <i className="fas fa-plus" /> Create Recipe
+                  <i className="fas fa-plus" /> Skapa recept
                 </Link>
               </li>
             )}

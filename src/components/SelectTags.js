@@ -39,7 +39,7 @@ class SelectTags extends Component {
           onChange={this.onChange}
           isMulti
           options={options}
-          placeholder={'Enter tags'}
+          placeholder={'Välj taggar'}
         />
       </div>
     );

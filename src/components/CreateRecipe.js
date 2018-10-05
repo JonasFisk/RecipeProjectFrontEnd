@@ -45,7 +45,7 @@ class CreateRecipe extends Component {
             </div>
           </div>
         ) : (
-          <p>Please log in to create a recipe</p>
+          <p>Logga in för att skapa ett recept</p>
         )}
       </div>
     );

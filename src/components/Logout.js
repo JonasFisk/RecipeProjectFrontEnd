@@ -13,10 +13,10 @@ class Logout extends Component {
       <div>
         {authenticated ? (
           <Link className="btn btn-danger" onClick={this.logout} to="/">
-            Logout
+            Logga ut
           </Link>
         ) : (
-          <p>You are not logged in</p>
+          <p>Du är inte inloggad</p>
         )}
       </div>
     );

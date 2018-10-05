@@ -7,7 +7,7 @@ class SubmitRecipe extends Component {
   state = {
     error: ''
   };
-  createRecipe = () => {
+  createRecipe = async () => {
     const {
       ingredients,
       name,
@@ -24,7 +24,7 @@ class SubmitRecipe extends Component {
       imageURL,
       description
     };
-    this.props.createRecipe(recipe);
+    await this.props.createRecipe(recipe);
     this.props.resetRecipe();
   };
   render() {
@@ -48,8 +48,11 @@ class SubmitRecipe extends Component {
           description &&
           instructions.length > 0 &&
           ingredients.length > 0 && (
-            <button className="btn btn-primary" onClick={this.createRecipe}>
-              CREATE RECIPE
+            <button
+              className="btn btn-primary mt-2"
+              onClick={this.createRecipe}
+            >
+              SKAPA RECEPT
             </button>
           )}
       </div>
